@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dumbstruck - Mock UI</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app" aria-live="polite">
+      <!-- Pages are toggled by app.js -->
+
+      <section class="page" id="page-loggedout" aria-label="You aren't logged in">
+        <header class="topbar">
+          <button class="nav-btn" type="button" data-nav="menu" aria-label="Menu">
+            <span class="nav-icon" aria-hidden="true">≡</span>
+          </button>
+          <div class="topbar-spacer"></div>
+          <button class="nav-btn" type="button" data-nav="account" aria-label="Account">
+            <span class="account-label" data-account-text>Account</span>
+          </button>
+        </header>
+
+        <main class="page-main">
+          <h1 class="hero">You aren't logged in!</h1>
+          <div class="hero-actions">
+            <button class="primary-btn" type="button" data-action="go-login" aria-label="Log in">
+              <span>Log in</span>
+            </button>
+            <button class="primary-btn" type="button" data-action="go-signup" aria-label="Sign up">
+              <span>Sign up</span>
+            </button>
+          </div>
+        </main>
+      </section>
+
+      <section class="page" id="page-login" aria-label="Log in">
+        <header class="topbar">
+          <button class="nav-btn" type="button" data-nav="menu" aria-label="Menu">
+            <span class="nav-icon" aria-hidden="true">≡</span>
+          </button>
+          <div class="topbar-spacer"></div>
+          <button class="nav-btn" type="button" data-nav="account" aria-label="Account">
+            <span class="account-label" data-account-text>Account</span>
+          </button>
+        </header>
+
+        <main class="page-main">
+          <h1 class="page-title">Log in</h1>
+          <form class="form-card" id="login-form">
+            <label class="field">
+              <span class="field-label">Name</span>
+              <input class="text-input" name="name" type="text" autocomplete="username" required />
+            </label>
+
+            <label class="field">
+              <span class="field-label">Password</span>
+              <input class="text-input" name="password" type="password" autocomplete="current-password" required />
+            </label>
+
+            <div class="form-actions">
+              <button class="primary-btn" type="submit">Log in</button>
+            </div>
+
+            <p class="hint">
+              No password security here; this is a UI mock that stores data in <code>localStorage</code>.
+            </p>
+          </form>
+        </main>
+      </section>
+
+      <section class="page" id="page-signup" aria-label="Sign up">
+        <header class="topbar">
+          <button class="nav-btn" type="button" data-nav="menu" aria-label="Menu">
+            <span class="nav-icon" aria-hidden="true">≡</span>
+          </button>
+          <div class="topbar-spacer"></div>
+          <button class="nav-btn" type="button" data-nav="account" aria-label="Account">
+            <span class="account-label" data-account-text>Account</span>
+          </button>
+        </header>
+
+        <main class="page-main">
+          <h1 class="page-title">Sign in</h1>
+
+          <form class="form-card" id="signup-form">
+            <label class="field">
+              <span class="field-label">Name</span>
+              <input class="text-input" name="name" type="text" autocomplete="username" required />
+            </label>
+
+            <label class="field">
+              <span class="field-label">Password</span>
+              <input class="text-input" name="password" type="password" autocomplete="new-password" required />
+            </label>
+
+            <label class="field field-col">
+              <span class="field-label">Conditions</span>
+              <textarea class="text-area" name="conditions" rows="6" required></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button class="primary-btn" type="submit" aria-label="Create account">
+                <span>Create account</span>
+              </button>
+            </div>
+
+            <p class="hint">
+              This page remembers what you type (autosaved to <code>localStorage</code>).
+            </p>
+          </form>
+        </main>
+      </section>
+
+      <section class="page" id="page-profile" aria-label="Account / Profile (image 1)">
+        <header class="topbar">
+          <button class="nav-btn" type="button" data-nav="menu" aria-label="Menu">
+            <span class="nav-icon" aria-hidden="true">≡</span>
+          </button>
+          <div class="topbar-spacer"></div>
+          <button class="nav-btn" type="button" data-nav="account" aria-label="Account">
+            <span class="account-label" data-account-text>Account</span>
+          </button>
+        </header>
+
+        <main class="page-main">
+          <div class="grid-2">
+            <div class="circle-card" aria-label="Circle icon placeholder">
+              <div class="x-circle" aria-hidden="true">
+                <div class="x-line" style="transform: rotate(45deg);"></div>
+                <div class="x-line" style="transform: rotate(-45deg);"></div>
+              </div>
+
+              <img id="avatar-preview" class="avatar-img" alt="Profile image preview" hidden />
+
+              <div class="avatar-actions">
+                <input id="avatar-file" type="file" accept="image/*" hidden />
+                <button class="primary-btn avatar-btn" type="button" id="avatar-add" aria-label="Add image to circle">
+                  <span>Add image</span>
+                </button>
+              </div>
+            </div>
+
+            <form class="form-card" id="profile-form">
+              <label class="field">
+                <span class="field-label">Name</span>
+                <input class="text-input" name="name" type="text" />
+              </label>
+
+              <label class="field field-col">
+                <span class="field-label">Diagnosed conditions</span>
+                <textarea class="text-area" name="conditions" rows="7"></textarea>
+              </label>
+
+              <div class="form-actions">
+                <button class="primary-btn" type="button" id="profile-finish" aria-label="Finish">
+                  <span>Finish</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </main>
+      </section>
+
+      <section class="page" id="page-dashboard" aria-label="Dashboard (image 2)">
+        <header class="topbar">
+          <button class="nav-btn" type="button" data-nav="menu" aria-label="Menu">
+            <span class="nav-icon" aria-hidden="true">≡</span>
+          </button>
+          <div class="topbar-spacer"></div>
+          <button class="nav-btn" type="button" data-nav="account" aria-label="Account">
+            <span class="account-label" data-account-text>Account</span>
+          </button>
+        </header>
+
+        <main class="page-main">
+          <div class="dashboard-grid" role="navigation" aria-label="Dashboard options">
+            <button class="nav-card" type="button" data-route="sound" aria-label="Sound Design">
+              <div class="nav-card-title">Sound Design</div>
+              <div class="nav-card-body">
+                <span>-Choose the</span>
+                <br />
+                <span>audio your</span>
+                <br />
+                <span>Medicine man</span>
+                <br />
+                <span>uses!</span>
+              </div>
+            </button>
+
+            <button class="nav-card" type="button" data-route="schedule" aria-label="Schedule">
+              <div class="nav-card-title">Schedule</div>
+              <div class="nav-card-body">
+                <span>-Choose the time</span>
+                <br />
+                <span>to consume your</span>
+                <br />
+                <span>medicine and</span>
+                <br />
+                <span>which are they!</span>
+              </div>
+            </button>
+
+            <button class="nav-card" type="button" data-route="contacts" aria-label="Emergency contacts">
+              <div class="nav-card-title">Emergency<br />contacts</div>
+              <div class="nav-card-body">
+                <span>-In case of a</span>
+                <br />
+                <span>problem select</span>
+                <br />
+                <span>who you'd like</span>
+                <br />
+                <span>notify!</span>
+              </div>
+            </button>
+          </div>
+        </main>
+      </section>
+
+      <section class="page" id="page-sound" aria-label="Current audio (image 6)">
+        <header class="topbar">
+          <button class="nav-btn" type="button" data-nav="menu" aria-label="Menu">
+            <span class="nav-icon" aria-hidden="true">≡</span>
+          </button>
+          <div class="topbar-spacer"></div>
+          <button class="nav-btn" type="button" data-nav="account" aria-label="Account">
+            <span class="account-label" data-account-text>Account</span>
+          </button>
+        </header>
+
+        <main class="page-main">
+          <h1 class="page-title">Current audio</h1>
+
+          <div class="audio-row">
+            <div class="audio-box">
+              <input id="audio-name" class="text-input audio-input" type="text" readonly />
+            </div>
+
+            <button class="icon-circle" type="button" id="audio-clear" aria-label="Remove audio">
+              <span class="icon-circle-x" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <audio id="audio-player" preload="metadata" hidden></audio>
+
+          <div class="form-actions">
+            <input id="audio-file" type="file" accept="audio/*" hidden />
+            <button class="primary-btn" type="button" id="audio-change" aria-label="Change audio">
+              <span>Change</span>
+            </button>
+
+            <button class="primary-btn" type="button" id="audio-play" aria-label="Play audio">
+              <span>Play</span>
+            </button>
+          </div>
+        </main>
+      </section>
+
+      <section class="page" id="page-schedule" aria-label="Dosage schedule (image 3)">
+        <header class="topbar">
+          <button class="nav-btn" type="button" data-nav="menu" aria-label="Menu">
+            <span class="nav-icon" aria-hidden="true">≡</span>
+          </button>
+          <div class="topbar-spacer"></div>
+          <button class="nav-btn" type="button" data-nav="account" aria-label="Account">
+            <span class="account-label" data-account-text>Account</span>
+          </button>
+        </header>
+
+        <main class="page-main">
+          <h1 class="page-title">Dosage schedule</h1>
+
+          <div class="table-card">
+            <div class="table-head">
+              <div>Medication</div>
+              <div>Time</div>
+              <div></div>
+            </div>
+
+            <div id="schedule-rows" class="rows"></div>
+          </div>
+
+          <div class="form-actions">
+            <button class="primary-btn" type="button" id="schedule-add" aria-label="Add time">
+              <span>Add time</span>
+            </button>
+          </div>
+        </main>
+      </section>
+
+      <section class="page" id="page-contacts" aria-label="Emergency contacts (image 4)">
+        <header class="topbar">
+          <button class="nav-btn" type="button" data-nav="menu" aria-label="Menu">
+            <span class="nav-icon" aria-hidden="true">≡</span>
+          </button>
+          <div class="topbar-spacer"></div>
+          <button class="nav-btn" type="button" data-nav="account" aria-label="Account">
+            <span class="account-label" data-account-text>Account</span>
+          </button>
+        </header>
+
+        <main class="page-main">
+          <h1 class="page-title">Emergency contacts</h1>
+
+          <div class="table-card">
+            <div id="contacts-rows" class="rows"></div>
+          </div>
+
+          <div class="form-actions">
+            <button class="primary-btn" type="button" id="contacts-add" aria-label="Add contact">
+              <span>Add contact</span>
+            </button>
+          </div>
+        </main>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
