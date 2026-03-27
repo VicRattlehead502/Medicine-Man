@@ -86,6 +86,8 @@ void setup() {
   buzzer2.begin();
 
   Serial.print("Connecting to WiFi (");
+  delay(3000);
+  
   Serial.print(ssid);
   Serial.print(")");
 
